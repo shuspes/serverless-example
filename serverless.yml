@@ -3,12 +3,7 @@ service: ${env:SERVICES_NAME_PREFIX}-app
 provider:
   name: aws
   runtime: nodejs6.10
-  stage: dev
+  stage: ${file(./${env:SERVICES_NAME_PREFIX}.yml):environment.stage}
   region: us-east-1
 
-functions:
-  app:
-    handler: index.${env:SERVICES_NAME_PREFIX}Handler
-    events:
-      - http: ANY /
-      - http: 'ANY {proxy+}'
+functions: ${file(./${env:SERVICES_NAME_PREFIX}.yml):functions}

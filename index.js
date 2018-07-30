@@ -7,6 +7,11 @@ helloApp.get('/', function(req, res) {
 	res.send('Hello, world!');
 });
 
+helloApp.get('/:name', function(req, res) {
+	const name = req.params.name
+	res.send(`Hello, ${name}!`);
+})
+
 const byApp = express();
 
 byApp.get('/', function(req, res) {

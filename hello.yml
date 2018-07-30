@@ -1,0 +1,17 @@
+functions:
+  sayHello:
+    handler: index.helloHandler
+    events:
+      - http: 
+          path: /
+          method: get
+        
+  sayHelloAlex:
+    handler: index.helloHandler
+    events:
+      - http: 
+          path: /{name}
+          method: get
+
+environment:
+  stage: dev

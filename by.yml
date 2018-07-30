@@ -1,0 +1,10 @@
+functions:
+  sayBy:
+    handler: index.byHandler
+    events:
+      - http: 
+          path: /
+          method: get
+
+environment:
+  stage: dev
